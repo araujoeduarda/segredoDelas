@@ -76,15 +76,11 @@ h1, h2, h3 {
 }
 
 .hero {
-  background: url('img/banner.jpg') center/cover no-repeat;
+  background: url('img/banner1.png') center/cover no-repeat;
   height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-align: center;
-  padding: 2rem;
+  width: 100%;
 }
+
 
 .hero-logo {
   max-height: 100px;
