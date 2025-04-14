@@ -373,3 +373,8 @@ h1, h2, h3 {
     height: 70px;
   }
 }
+@media (max-width: 480px) {
+  .logo {
+    height: 100px; /* Aumente o tamanho do logo aqui */
+  }
+}
