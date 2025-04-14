@@ -1,9 +1,11 @@
+/* RESET BÁSICO */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* TIPOGRAFIA */
 body {
   font-family: 'Open Sans', sans-serif;
   color: #333;
@@ -16,12 +18,14 @@ h1, h2, h3 {
   color: #a33652;
 }
 
+/* ESTRUTURA PRINCIPAL */
 .container {
   width: 90%;
   max-width: 1200px;
   margin: auto;
 }
 
+/* HEADER */
 .header {
   background-color: #fff;
   border-bottom: 1px solid #ddd;
@@ -35,6 +39,7 @@ h1, h2, h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 .logo-box {
@@ -44,7 +49,9 @@ h1, h2, h3 {
 }
 
 .logo {
-  max-height: 50px;
+  max-height: 20vh;
+  height: auto;
+  width: auto;
 }
 
 .brand-name {
@@ -57,8 +64,7 @@ h1, h2, h3 {
   color: #e26890;
 }
 
-
-
+/* NAVEGAÇÃO */
 .nav {
   display: flex;
   align-items: center;
@@ -77,10 +83,18 @@ h1, h2, h3 {
   color: #e26890;
 }
 
+/* BOTÃO MOBILE */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #a33652;
+}
+
+/* HERO */
 .hero {
   width: 100%;
   overflow: hidden;
-  position: relative;
 }
 
 .carousel {
@@ -99,18 +113,17 @@ h1, h2, h3 {
   z-index: 1;
 }
 
+.banner.active {
+  opacity: 1;
+  z-index: 2;
+}
+
 .banner img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   display: block;
-  background-color: #fff; /* ou #000 dependendo da imagem */
-}
-
-
-.banner.active {
-  opacity: 1;
-  z-index: 2;
+  background-color: #fff;
 }
 
 .prev,
@@ -118,7 +131,7 @@ h1, h2, h3 {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(255, 255, 255, 0.4); /* mais transparente */
+  background-color: rgba(255, 255, 255, 0.4);
   border: none;
   font-size: 2rem;
   padding: 0.3rem 0.8rem;
@@ -127,9 +140,8 @@ h1, h2, h3 {
   color: #a33652;
   z-index: 3;
   transition: background-color 0.3s;
-  backdrop-filter: blur(4px); /* dá um efeito fosco bonito */
+  backdrop-filter: blur(4px);
 }
-
 
 .prev:hover,
 .next:hover {
@@ -143,8 +155,6 @@ h1, h2, h3 {
 .next {
   right: 10px;
 }
-
-
 
 .hero-logo {
   max-height: 100px;
@@ -166,7 +176,7 @@ h1, h2, h3 {
   border-radius: 8px;
 }
 
-
+/* SEÇÃO PRODUTOS */
 .section {
   padding: 6rem 0;
   text-align: center;
@@ -236,6 +246,7 @@ h1, h2, h3 {
   background-color: #218838;
 }
 
+/* FOOTER */
 .footer {
   background-color: #a33652;
   color: white;
@@ -244,6 +255,7 @@ h1, h2, h3 {
   font-size: 0.9rem;
 }
 
+/* CONTATO */
 .contato .whatsapp-btn {
   display: inline-flex;
   align-items: center;
@@ -267,24 +279,50 @@ h1, h2, h3 {
   object-fit: contain;
 }
 
-.hero {
-  width: 100%;
-  overflow: hidden;
+/* WHATSAPP FIXO */
+.whatsapp-float {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
 }
 
-.hero-banner {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.menu-toggle {
-  display: none;
-  font-size: 2rem;
-  cursor: pointer;
-  color: #a33652;
+.whatsapp-float img {
+  width: 28px;
+  height: 28px;
 }
 
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+/* MEDIA QUERIES */
 @media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo-box {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .logo {
+    height: 90px;
+  }
+
   .nav {
     display: none;
     flex-direction: column;
@@ -302,59 +340,36 @@ h1, h2, h3 {
     display: flex;
   }
 
-  .menu-toggle {
-    display: block;
-  }
-
-  .header-container {
-    position: relative;
-  }
-
   .nav a {
     padding: 1rem;
     text-align: center;
     border-bottom: 1px solid #eee;
   }
+
+  .menu-toggle {
+    display: block;
+  }
 }
+
 @media (max-width: 600px) {
   .prev,
   .next {
     font-size: 1rem;
     padding: 0.15rem 0.4rem;
   }
-}
-@media (max-width: 600px) {
+
   .section {
-    padding: 1.5rem 0; /* era 3rem, agora bem mais colado */
+    padding: 1.5rem 0;
   }
 
   .carousel {
-    margin-top: -1rem; /* cola no header */
-    margin-bottom: 0.5rem; /* cola na próxima seção */
+    margin-top: -1rem;
+    margin-bottom: 0.5rem;
   }
 }
 
-.whatsapp-float {
-  position: fixed;
-  width: 50px;
-  height: 50px;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25d366;
-  border-radius: 50%;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.2s ease;
-}
-
-.whatsapp-float img {
-  width: 28px;
-  height: 28px;
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.1);
+@media (max-width: 480px) {
+  .logo {
+    height: 70px;
+  }
 }
