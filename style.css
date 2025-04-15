@@ -20,7 +20,7 @@ h1, h2, h3 {
 
 /* ESTRUTURA PRINCIPAL */
 .container {
-  width: 90%;
+  width: 96%;
   max-width: 1200px;
   margin: auto;
 }
@@ -368,13 +368,42 @@ h1, h2, h3 {
   }
 }
 
+
+
+/* MUDANÇAS HEDARE PEQUENAS TELAS */
+
+
+
 @media (max-width: 480px) {
   .logo {
-    height: 70px;
+    height: 100px; /* AumentAR o tamanho do logo aqui */
+  }
+}
+html {
+  scroll-behavior: smooth;
+}
+.carousel {
+  margin-top: 0 !important;
+}
+.header {
+  padding: 0.2rem 0 0 0; /* top, right, bottom, left */
+}
+img {
+  display: block;
+}
+@media (max-width: 500px) {
+  .hero {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .carousel {
+    position: relative;
+    height: 200px;
   }
 }
 @media (max-width: 480px) {
   .logo {
-    height: 100px; /* Aumente o tamanho do logo aqui */
+    height: 100px;
+    max-height: none;
   }
 }
