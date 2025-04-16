@@ -13,6 +13,25 @@ body {
   line-height: 1.6;
 }
 
+.top-banner {
+  background-color: #FF007F; /* rosa vibrante */
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-weight: bold;
+  font-size: 16px;
+  position:relative;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  padding-top: 0.1px; /* espaço para a faixa não cobrir o topo do conteúdo */
+}
+
+
 h1, h2, h3 {
   font-family: 'Playfair Display', serif;
   color: #a33652;
