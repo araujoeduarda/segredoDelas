@@ -8,6 +8,7 @@ function showBanner(index) {
   banners.forEach((banner, i) => {
     banner.classList.toggle('active', i === index);
   });
+  updateDots(); // Atualiza os dots sempre que o banner muda
 }
 
 if (nextBtn && prevBtn && banners.length > 0) {
@@ -38,6 +39,20 @@ if (toggleButton && navMenu) {
       navMenu.classList.remove('show');
     });
   });
+}
+
+// DOTS DO BANNER
+const dots = document.querySelectorAll('.dot');
+dots.forEach(dot => {
+  dot.addEventListener('click', (e) => {
+    current = parseInt(e.target.dataset.index); // Certifique-se de converter para número
+    showBanner(current); // Exibe o banner selecionado
+  });
+});
+
+function updateDots() {
+  dots.forEach(dot => dot.classList.remove('active')); // Remove a classe 'active' de todos os dots
+  dots[current].classList.add('active'); // Adiciona a classe 'active' ao dot correspondente
 }
 
 // WHATSAPP

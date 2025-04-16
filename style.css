@@ -13,6 +13,13 @@ body {
   line-height: 1.6;
 }
 
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  color: #a33652;
+}
+
+/* BANNER */
 .top-banner {
   background-color: #FF007F; /* rosa vibrante */
   color: white;
@@ -29,12 +36,6 @@ body {
 
 body {
   padding-top: 0.1px; /* espaço para a faixa não cobrir o topo do conteúdo */
-}
-
-
-h1, h2, h3 {
-  font-family: 'Playfair Display', serif;
-  color: #a33652;
 }
 
 /* ESTRUTURA PRINCIPAL */
@@ -195,6 +196,29 @@ h1, h2, h3 {
   border-radius: 8px;
 }
 
+/* DOTS DO BAMNER */
+
+.dots-container {
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #ddd;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.dot.active {
+  background-color: #a33652; /* Cor escura quando ativo */
+}
+
+
+
 /* SEÇÃO PRODUTOS */
 .section {
   padding: 6rem 0;
@@ -231,6 +255,16 @@ h1, h2, h3 {
   border-radius: 6px;
   margin-bottom: 1rem;
 }
+
+.produto img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.produto:hover img {
+  transform: scale(1.05); /* Zoom na imagem */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 
 .produto h3 {
   font-size: 1.2rem;
