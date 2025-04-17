@@ -60,6 +60,13 @@ body {
   align-items: center;
   justify-content: space-between;
   position: relative;
+  gap: 0; /* Garantir que haja espaçamento entre os itens */
+}
+
+/* Tornando o ícone do menu e o carrinho lado a lado */
+.menu-toggle, .cart-link {
+  display: inline-flex;
+  align-items: center;
 }
 
 .logo-box {
@@ -107,7 +114,9 @@ body {
   display: flex;
   align-items: center;
   padding: 0.3rem;
+  margin-right: 20px; /* Adicionando margem à direita para afastar do extremo */
 }
+
 
 .cart-icon {
   width: 24px;
@@ -439,19 +448,11 @@ body {
 /* MEDIA QUERIES */
 @media (max-width: 768px) {
   .header-container {
-    flex-direction: column;
-    align-items: center;
+    justify-content: flex-start; /* Alinhar os itens à esquerda */
   }
 
   .logo-box {
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.3rem;
-  }
-
-  .logo {
-    height: 90px;
+    flex: 1;
   }
 
   .nav {
@@ -471,16 +472,24 @@ body {
     display: flex;
   }
 
-  .nav a {
-    padding: 1rem;
-    text-align: center;
-    border-bottom: 1px solid #eee;
-  }
-
   .menu-toggle {
     display: block;
+    margin-right: 15px; /* Ajuste a margem se necessário */
+    order: 1; /* Garante que o ícone do menu apareça antes do carrinho */
+  }
+
+  .cart-link {
+    order: 2; /* Garante que o carrinho fique após o ícone de menu */
   }
 }
+
+/* Responsividade para telas menores */
+@media (max-width: 480px) {
+  .cart-link {
+    margin-left: 15px; /* Para adicionar algum espaço entre o menu e o carrinho */
+  }
+}
+
 
 @media (max-width: 600px) {
   .prev,
@@ -660,4 +669,26 @@ img {
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+.button-group {
+  display: flex;
+  gap: 15px; /* Espaçamento entre os botões */
+  justify-content: center; /* Alinha os botões no centro */
+  margin-top: 20px; /* Espaço acima dos botões */
+}
+
+.finalizar-btn, .continuar-btn {
+  background-color: #a33652;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 45%; /* Ajusta a largura para garantir que os botões não se sobreponham */
+}
+
+@media (max-width: 480px) {
+  .finalizar-btn, .continuar-btn {
+    width: 50%; /* Faz os botões ocuparem toda a largura em telas muito pequenas */
+  }
 }
