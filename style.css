@@ -355,6 +355,26 @@ body {
   background-color: #218838;
 }
 
+.tamanhos {
+  margin-top: 10px;
+  font-family: inherit;
+}
+
+.tamanhos label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.tamanhos select {
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  background-color: #fff;
+}
+
+
 /* FOOTER */
 .footer {
   background-color: #a33652;

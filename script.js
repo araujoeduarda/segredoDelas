@@ -61,11 +61,18 @@ const botaoComprar = document.querySelectorAll('.btn');
 if (botaoComprar.length > 0) {
   botaoComprar.forEach(botao => {
     botao.addEventListener('click', function () {
-      const produto = this.parentElement.querySelector('h3');
-      if (!produto) return;
-      const nomeProduto = produto.textContent;
+      const produtoDiv = this.closest('.produto');
+      const nomeProduto = produtoDiv.querySelector('h3').textContent;
+      const select = produtoDiv.querySelector('select');
+      let tamanho = '';
+
+      if (select) {
+        tamanho = select.value;
+      }
+
+      const mensagemProduto = tamanho ? `${nomeProduto} (Tamanho: ${tamanho})` : nomeProduto;
       const numero = '5521964269909';
-      const mensagem = encodeURIComponent(`Olá! Tenho interesse no produto: ${nomeProduto}`);
+      const mensagem = encodeURIComponent(`Olá! Tenho interesse no produto: ${mensagemProduto}`);
       const link = `https://wa.me/${numero}?text=${mensagem}`;
       window.open(link, '_blank');
     });
@@ -98,12 +105,23 @@ function salvarCarrinho() {
   localStorage.setItem('carrinho', JSON.stringify(carrinho));
 }
 
-function addToCart(produto) {
-  carrinho.push(produto);
-  alert(`${produto} foi adicionado ao carrinho.`);
+function addToCart(nomeProduto, botaoClicado) {
+  const produtoDiv = botaoClicado.closest('.produto');
+  const select = produtoDiv.querySelector('select');
+  let tamanho = '';
+
+  if (select) {
+    tamanho = select.value;
+  }
+
+  const item = tamanho ? `${nomeProduto} (Tamanho: ${tamanho})` : nomeProduto;
+
+  carrinho.push(item);
+  alert(`${item} foi adicionado ao carrinho.`);
   updateCartCount();
   salvarCarrinho();
 }
+
 
 function updateCartCount() {
   const cartCount = document.getElementById('cart-count');
