@@ -131,14 +131,14 @@ function exibirCarrinho() {
       buttonGroup.classList.add('button-group');
 
       const removeBtn = document.createElement('button');
-      removeBtn.textContent = 'Excluir';
+      removeBtn.textContent = '-';
       removeBtn.classList.add('remove-btn');
       removeBtn.onclick = function () {
         removeItemFromCart(index);
       };
 
       const addBtn = document.createElement('button');
-      addBtn.textContent = 'Adicionar +';
+      addBtn.textContent = '+';
       addBtn.classList.add('add-btn');
       addBtn.onclick = function () {
         carrinho.push(item);
@@ -169,8 +169,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnAbrirCarrinho = document.querySelector('.cart-link');
   const btnFecharCarrinho = document.querySelector('.close-cart');
   const btnFinalizar = document.querySelector('.finalizar-btn');
+  const btnContinuar = document.querySelector('.continuar-btn'); // <- novo botão
 
-  updateCartCount(); // <-- Importante para mostrar o total ao carregar a página
+  updateCartCount();
 
   if (btnAbrirCarrinho) {
     btnAbrirCarrinho.addEventListener('click', (e) => {
@@ -181,6 +182,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (btnFecharCarrinho) {
     btnFecharCarrinho.addEventListener('click', () => {
+      const modal = document.getElementById('cart-modal');
+      modal.style.display = 'none';
+    });
+  }
+
+  // NOVO: botão "Continuar Comprando" apenas fecha o modal
+  if (btnContinuar) {
+    btnContinuar.addEventListener('click', () => {
       const modal = document.getElementById('cart-modal');
       modal.style.display = 'none';
     });
