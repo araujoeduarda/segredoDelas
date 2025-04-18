@@ -390,6 +390,17 @@ h1, h2, h3 {
   padding: 1.5rem 0;
   font-size: 0.9rem;
 }
+.footer a {
+  color: #E0E0E0; /* Garante que o link tenha cor branca */
+  text-decoration: none; /* Remove o sublinhado */
+  font-size: 1rem;
+}
+
+.footer a:hover {
+  color: white; /* Mantém o link branco ao passar o mouse */
+}
+
+
 
 /* CONTATO */
 .contato .whatsapp-btn {
