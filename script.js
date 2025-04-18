@@ -43,6 +43,7 @@ if (toggleButton && navMenu) {
 
 // === BANNER COM DOTS ===
 const dots = document.querySelectorAll('.dot');
+
 dots.forEach(dot => {
   dot.addEventListener('click', (e) => {
     current = parseInt(e.target.dataset.index);
@@ -64,13 +65,9 @@ if (botaoComprar.length > 0) {
       const produtoDiv = this.closest('.produto');
       const nomeProduto = produtoDiv.querySelector('h3').textContent;
       const select = produtoDiv.querySelector('select');
-      let tamanho = '';
-
-      if (select) {
-        tamanho = select.value;
-      }
-
+      let tamanho = select ? select.value : '';
       const mensagemProduto = tamanho ? `${nomeProduto} (Tamanho: ${tamanho})` : nomeProduto;
+
       const numero = '5521964269909';
       const mensagem = encodeURIComponent(`Olá! Tenho interesse no produto: ${mensagemProduto}`);
       const link = `https://wa.me/${numero}?text=${mensagem}`;
@@ -108,12 +105,7 @@ function salvarCarrinho() {
 function addToCart(nomeProduto, botaoClicado) {
   const produtoDiv = botaoClicado.closest('.produto');
   const select = produtoDiv.querySelector('select');
-  let tamanho = '';
-
-  if (select) {
-    tamanho = select.value;
-  }
-
+  const tamanho = select ? select.value : '';
   const item = tamanho ? `${nomeProduto} (Tamanho: ${tamanho})` : nomeProduto;
 
   carrinho.push(item);
@@ -121,7 +113,6 @@ function addToCart(nomeProduto, botaoClicado) {
   updateCartCount();
   salvarCarrinho();
 }
-
 
 function updateCartCount() {
   const cartCount = document.getElementById('cart-count');
@@ -151,14 +142,14 @@ function exibirCarrinho() {
       const removeBtn = document.createElement('button');
       removeBtn.textContent = '-';
       removeBtn.classList.add('remove-btn');
-      removeBtn.onclick = function () {
+      removeBtn.onclick = () => {
         removeItemFromCart(index);
       };
 
       const addBtn = document.createElement('button');
       addBtn.textContent = '+';
       addBtn.classList.add('add-btn');
-      addBtn.onclick = function () {
+      addBtn.onclick = () => {
         carrinho.push(item);
         salvarCarrinho();
         exibirCarrinho();
@@ -180,16 +171,16 @@ function exibirCarrinho() {
 function removeItemFromCart(index) {
   carrinho.splice(index, 1);
   salvarCarrinho();
-  updateCartCount(); 
+  updateCartCount();
   exibirCarrinho();
 }
 
-
+// === AÇÕES DO CARRINHO NO DOMContentLoaded ===
 document.addEventListener('DOMContentLoaded', () => {
   const btnAbrirCarrinho = document.querySelector('.cart-link');
   const btnFecharCarrinho = document.querySelector('.close-cart');
   const btnFinalizar = document.querySelector('.finalizar-btn');
-  const btnContinuar = document.querySelector('.continuar-btn'); 
+  const btnContinuar = document.querySelector('.continuar-btn');
 
   updateCartCount();
 
@@ -202,16 +193,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (btnFecharCarrinho) {
     btnFecharCarrinho.addEventListener('click', () => {
-      const modal = document.getElementById('cart-modal');
-      modal.style.display = 'none';
+      document.getElementById('cart-modal').style.display = 'none';
     });
   }
 
-  // NOVO: botão "Continuar Comprando" apenas fecha o modal
   if (btnContinuar) {
     btnContinuar.addEventListener('click', () => {
-      const modal = document.getElementById('cart-modal');
-      modal.style.display = 'none';
+      document.getElementById('cart-modal').style.display = 'none';
     });
   }
 
@@ -233,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       window.open(link, '_blank');
 
-      // Limpa o carrinho após a finalização
+      // limpar carrinho após finalizar
       carrinho = [];
       localStorage.removeItem('carrinho');
       updateCartCount();

@@ -11,6 +11,7 @@ body {
   color: #333;
   background-color: #fff;
   line-height: 1.6;
+  padding-top: 0.1px; /* espaço para a faixa não cobrir o topo do conteúdo */
 }
 
 
@@ -34,9 +35,6 @@ h1, h2, h3 {
   font-family: 'Arial', sans-serif;
 }
 
-body {
-  padding-top: 0.1px; /* espaço para a faixa não cobrir o topo do conteúdo */
-}
 
 /* ESTRUTURA PRINCIPAL */
 .container {
@@ -60,10 +58,10 @@ body {
   align-items: center;
   justify-content: space-between;
   position: relative;
-  gap: 0; /* Garantir que haja espaçamento entre os itens */
+  gap: 0; /* espaçamento entre os iten */
 }
 
-/* Tornando o ícone do menu e o carrinho lado a lado */
+/* cOcolando icon do menu e carrinho lado a lado */
 .menu-toggle, .cart-link {
   display: inline-flex;
   align-items: center;
@@ -114,7 +112,7 @@ body {
   display: flex;
   align-items: center;
   padding: 0.3rem;
-  margin-right: 20px; /* Adicionando margem à direita para afastar do extremo */
+  margin-right: 20px; /*  margem a direita para afastar do extremo original */
 }
 
 
@@ -279,7 +277,7 @@ body {
 }
 
 .dot.active {
-  background-color: #a33652; /* Cor escura quando ativo */
+  background-color: #a33652; /* Cor escura atv */
 }
 
 
@@ -326,7 +324,7 @@ body {
 }
 
 .produto:hover img {
-  transform: scale(1.05); /* Zoom na imagem */
+  transform: scale(1.05); /* Zoom na imagem p modificar quabdo quiser */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -657,14 +655,14 @@ img {
 
 .remove-btn,
 .add-btn {
-  padding: 6px 6px;           /* Igual em cima, baixo, esquerda e direita */
+  padding: 6px 6px;           /* lados ifgauis */
   font-size: 13px;
   cursor: pointer;
   border: none;
-  border-radius: 3px;         /* Menor arredondamento para ficar mais quadrado */
-  min-width: auto;            /* Remover o valor fixo */
-  width: 30px;                /* Ou defina uma largura específica, opcional */
-  height: 30px;               /* Define altura igual para tornar quadrado */
+  border-radius: 3px;         
+  min-width: auto;            /*p remover o valor fixo */
+  width: 30px;                /*  largura específc */
+  height: 30px;               /* igual p ficar quadrado */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -672,9 +670,9 @@ img {
 }
 .button-group {
   display: flex;
-  gap: 15px; /* Espaçamento entre os botões */
-  justify-content: center; /* Alinha os botões no centro */
-  margin-top: 20px; /* Espaço acima dos botões */
+  gap: 15px; /* btwn entre os botoes */
+  justify-content: center; 
+  margin-top: 20px; /* espaco acima dos botoes */
 }
 
 .finalizar-btn, .continuar-btn {
@@ -684,11 +682,11 @@ img {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  width: 45%; /* Ajusta a largura para garantir que os botões não se sobreponham */
+  width: 45%; /*  largura para garantir que os botos nao se sobreponham */
 }
 
 @media (max-width: 480px) {
   .finalizar-btn, .continuar-btn {
-    width: 50%; /* Faz os botões ocuparem toda a largura em telas muito pequenas */
+    width: 50%; /* Faz os botoes ocuparemmetade */
   }
 }
