@@ -180,14 +180,16 @@ function exibirCarrinho() {
 function removeItemFromCart(index) {
   carrinho.splice(index, 1);
   salvarCarrinho();
+  updateCartCount(); 
   exibirCarrinho();
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const btnAbrirCarrinho = document.querySelector('.cart-link');
   const btnFecharCarrinho = document.querySelector('.close-cart');
   const btnFinalizar = document.querySelector('.finalizar-btn');
-  const btnContinuar = document.querySelector('.continuar-btn'); // <- novo botão
+  const btnContinuar = document.querySelector('.continuar-btn'); 
 
   updateCartCount();
 
